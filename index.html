@@ -2,16 +2,18 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>🎮 GX Игровая Встреча</title>
+    <title>🎮 Игровая Встреча</title>
     <style>
         /* Общий стиль страницы */
-        body {
+        html, body {
             margin: 0;
             padding: 0;
+            height: 100%;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('background.png') no-repeat center center fixed;
+            background: url('background.JPG') no-repeat center center fixed;
             background-size: cover;
             color: #fff;
+            overflow: hidden; /* Убираем скролл */
         }
 
         /* Анимация текста */
@@ -19,7 +21,6 @@
             animation: blink 2s infinite;
             font-size: 1.1em;
             color: gold;
-            margin-top: 20px;
             text-shadow: 1px 1px 2px black;
         }
 
@@ -33,35 +34,44 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
+            justify-content: space-between;
+            height: 100vh;
             padding: 20px;
+            box-sizing: border-box;
         }
 
         h1 {
             font-size: 2.2em;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
             color: gold;
             text-shadow: 2px 2px #000;
             letter-spacing: 2px;
         }
 
-        /* Полупрозрачное окно видеоконференции */
-        iframe {
-            width: 90%;
-            max-width: 800px;
-            height: 500px;
-            border: none;
+        /* Полноэкранное окно видеоконференции */
+        .video-container {
+            flex-grow: 1;
+            width: 95%;
+            max-width: 1200px;
+            height: 100%;
+            margin: 0 auto;
             border-radius: 12px;
             box-shadow: 0 0 15px #00ffff;
-            opacity: 0.95;
+            overflow: hidden;
             backdrop-filter: blur(4px);
+            opacity: 0.95;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
         }
 
         /* Кнопка скачивания */
         .download-btn {
-            margin-top: 20px;
+            margin-top: 10px;
             background-color: rgba(255, 0, 0, 0.8);
             color: white;
             border: none;
@@ -80,23 +90,26 @@
 <body>
 
     <div class="container">
-        <h1>⚔️ GX ИГРОВАЯ КОМНАТА ⚔️</h1>
+        <!-- Заголовок -->
+        <h1>⚔️ ИГРОВАЯ КОМНАТА ⚔️</h1>
 
-        <!-- Встроенный Jitsi чат -->
-        <iframe 
-            src="https://meet.jit.si/GX- ИгроваяКомната"
-            allow="camera; microphone; fullscreen; display-capture"
-        ></iframe>
-
-        <!-- Анимированный текст -->
-        <div class="animated-text">
-            🔽 Скачайте RadminVPN и присоединяйтесь к вирт.сети!
+        <!-- Полноэкранное видео -->
+        <div class="video-container">
+            <iframe 
+                src="https://meet.jit.si/GX- ИгроваяКомната"
+                allow="camera; microphone; fullscreen; display-capture"
+            ></iframe>
         </div>
 
-        <!-- Кнопка скачивания -->
-        <a href="https://www.radmin-vpn.com/download/ " target="_blank">
-            <button class="download-btn">Скачать RadminVPN</button>
-        </a>
+        <!-- Анимированный текст + кнопка -->
+        <div style="text-align:center;">
+            <div class="animated-text">
+                🔽 Скачайте RadminVPN и присоединяйтесь к вирт.сети!
+            </div>
+            <a href="https://www.radmin-vpn.com/download/ " target="_blank">
+                <button class="download-btn">Скачать RadminVPN</button>
+            </a>
+        </div>
     </div>
 
 </body>
